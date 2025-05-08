@@ -19,6 +19,9 @@ def load_csv_as_docs(path, filename, batch_size=5):
         rows = [f"Dòng {i+j+1}: {', '.join([f'{col}={row[col]}' for col in df.columns])}" 
                 for j, row in chunk.iterrows()]
         content = columns_info + "\n".join(rows)
+        # Loại bỏ comment/code hoặc ký tự đặc biệt không cần thiết
+        content = content.replace("```", "").replace('"""', "")
+        content = content.replace("#", "")
         docs.append(Document(
             page_content=content,
             metadata={"filename": filename, "start_row": i+1}
