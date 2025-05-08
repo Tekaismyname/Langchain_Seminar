@@ -1,30 +1,21 @@
-# Core LangChain & components
-langchain>=0.1.16
-langchain-community>=0.0.21
-langchain-core>=0.1.35
+# Core dependencies
+streamlit
+langchain>=0.1.14
+python-dotenv
 
-# Embedding (HuggingFace)
-sentence-transformers>=2.2.2
+# Vector store & text processing
+faiss-cpu
+sentence-transformers
+pandas
 
-# Vector store
-faiss-cpu>=1.7.4
+# Document loaders
+pymupdf
+docx2txt
 
-# PDF loader
-pymupdf>=1.23.0
+# OpenAI + Azure + Hugging Face options
+openai
+langchain-openai
+huggingface_hub
 
-# CSV + dataframe handling
-pandas>=2.0.0
-
-# DOCX loaders
-python-docx>=0.8.11
-docx2txt>=0.8
-
-# Unstructured document parsing
-unstructured[all-docs]>=0.10.12
-
-# LLMs (optional, for OpenAI Chat model)
-openai>=1.10.0
-tiktoken>=0.5.2
-
-# NLTK (for sentence splitting)
-nltk>=3.8.1
+# Optional for file types
+python-docx
