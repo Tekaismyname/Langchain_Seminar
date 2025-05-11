@@ -58,3 +58,11 @@ def load_all_documents(folder_path):
         except Exception as e:
             print(f"❌ Lỗi khi load '{file}': {e}")
     return docs
+
+def analyze_csv_by_filename(filename: str, condition_fn):
+    path = os.path.join("data", filename)
+    try:
+        df = pd.read_csv(path, encoding="utf-8", engine="python")
+        return condition_fn(df)
+    except Exception as e:
+        return f"❌ Không thể đọc '{filename}': {e}"
